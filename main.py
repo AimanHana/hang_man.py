@@ -25,10 +25,70 @@ while(lives>0):
         lives -= 1
         print(' '.join(guessed_word))
         print(f'Wrong letter. You have {lives} lives left.')
+        if lives == 5:
+            print("""
+                -----------
+                |         |
+                |         O
+                |
+                |
+                |
+                |
+            """)
+        elif lives == 4:
+             print("""
+                -----------
+                |         |
+                |         O
+                |         | 
+                |         |
+                |
+                |
+            """)
+        elif lives == 3:
+            print("""
+                -----------
+                |         |
+                |         O
+                |        /| 
+                |         |
+                |
+                |
+            """)
+        elif lives == 2:
+            print("""
+                -----------
+                |         |
+                |         O
+                |        /|\ 
+                |         |
+                |
+                |
+            """)
+        elif lives == 1:
+            print("""
+                -----------
+                |         |
+                |         O
+                |        /|\ 
+                |         |
+                |        /
+                |
+            """)
+        
+          
     if '_' not in guessed_word:
         print(' '.join(guessed_word))
         print('You guessed it right. Well done.')
         sys.exit() #quit() # exit() #This will terminate the program
-        
+print("""
+                -----------
+                |         |
+                |         O
+                |        /|\ 
+                |         |
+                |        / \\
+                |
+            """)           
 print('You ran out of lives. Game Over') 
  
