@@ -1,11 +1,17 @@
 import random
 import sys
 import os
+import nltk
+
+from nltk.corpus import words
+word_list = words.words()
+tried = []
 lives = 6
 #Starting with a list of secret words
 words = ['monkey','camel','mouse','baboon','tiger','lion','crocodile']
 #pick up a random word from the list of secret words
-secret_word = random.choice(words)
+secret_word = random.choice(word_list)
+
 #display the number of letters in the secret word as underscores
 guessed_word = ['_' for x in range(len(secret_word))]
 print("""
@@ -33,7 +39,10 @@ while(lives>=0):
     elif guessed_letter in guessed_word: # checking if the letter was choesn before
         print(' '.join(guessed_word))
         print('You chose that letter before.')
+    elif guessed_letter in tried:
+        print('You made that mistake before.')
     else:
+        tried.append(guessed_letter)
         lives -= 1
         if lives == 5:
             cls = lambda: os.system('clear')
@@ -59,6 +68,7 @@ while(lives>=0):
             """)
             print(' '.join(guessed_word))
             print(f'Wrong letter. You have {lives} lives left.')
+            print(f'You wrongly tried {tried} so far.')
            
         elif lives == 4:
             cls()
@@ -83,6 +93,7 @@ while(lives>=0):
             """)
             print(' '.join(guessed_word))
             print(f'Wrong letter. You have {lives} lives left.')
+            print(f'You wrongly tried {tried} so far.')
             
         elif lives == 3:
             cls()
@@ -107,6 +118,7 @@ while(lives>=0):
             """)
             print(' '.join(guessed_word))
             print(f'Wrong letter. You have {lives} lives left.')
+            print(f'You wrongly tried {tried} so far.')
             
         elif lives == 2:
             cls()
@@ -131,6 +143,7 @@ while(lives>=0):
             """)
             print(' '.join(guessed_word))
             print(f'Wrong letter. You have {lives} lives left.')
+            print(f'You wrongly tried {tried} so far.')
            
         elif lives == 1:
             cls()
@@ -155,6 +168,7 @@ while(lives>=0):
             """)
             print(' '.join(guessed_word))
             print(f'Wrong letter. You have {lives} lives left.')
+            print(f'You wrongly tried {tried} so far.')
           
         elif lives == 0:
             cls()
@@ -179,6 +193,7 @@ while(lives>=0):
             """)
             print(' '.join(guessed_word))
             print(f'Wrong letter. You have {lives} lives left.')
+            print(f'You wrongly tried {tried} so far.')
          
             print("""
                 ┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼
