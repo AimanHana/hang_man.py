@@ -2,16 +2,14 @@ import random
 import sys
 import os
 import nltk
-
+#Starting with a list of secret words from the dictionary
+#nltk.downlaod() to download the words from the dictionary
 from nltk.corpus import words
 word_list = words.words()
 tried = []
 lives = 6
-#Starting with a list of secret words
-words = ['monkey','camel','mouse','baboon','tiger','lion','crocodile']
 #pick up a random word from the list of secret words
 secret_word = random.choice(word_list)
-
 #display the number of letters in the secret word as underscores
 guessed_word = ['_' for x in range(len(secret_word))]
 print("""
@@ -216,6 +214,3 @@ while(lives>=0):
         # print(' '.join(guessed_word))
         print('You guessed it right. Well done.')
         sys.exit() #quit() # exit() #This will terminate the program
-
-
- 
