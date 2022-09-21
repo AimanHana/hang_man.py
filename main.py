@@ -3,7 +3,7 @@ import sys
 import os
 import nltk
 #Starting with a list of secret words from the dictionary
-#nltk.downlaod() to download the words from the dictionary
+nltk.downlaod('words') to download the words from the dictionary
 from nltk.corpus import words
 word_list = words.words()
 tried = []
